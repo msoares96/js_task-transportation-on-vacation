@@ -12,15 +12,19 @@ function calculateRentalCost(days) {
 
   const subtotal = DAILY_FEE * days;
 
-  if (days >= LONG_TERM) {
-    return subtotal - LONG_TERM_DISCOUNT;
+  if (days > 0) {
+    if (days >= LONG_TERM) {
+      return subtotal - LONG_TERM_DISCOUNT;
+    }
+
+    if (days >= MID_TERM) {
+      return subtotal - MID_TERM_DISCOUNT;
+    }
+
+    return subtotal;
   }
 
-  if (days >= MID_TERM) {
-    return subtotal - MID_TERM_DISCOUNT;
-  }
-
-  return subtotal;
+  return 0;
 }
 
-module.exports = calculateRentalCost;
+calculateRentalCost(2);
