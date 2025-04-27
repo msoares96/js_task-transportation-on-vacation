@@ -24,7 +24,7 @@ function calculateRentalCost(days) {
     return subtotal;
   }
 
-  return 0;
+  throw new Error('Invalid number of days');
 }
 
 module.exports = calculateRentalCost;
